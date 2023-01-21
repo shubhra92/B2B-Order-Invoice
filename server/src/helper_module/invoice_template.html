@@ -15,6 +15,10 @@
 
         }
 
+        .t-amount {
+            max-width: 50px;
+        }
+
         #g--total {
             text-align: right;
         }
@@ -77,7 +81,7 @@
             <td>{{this.SGST_P}}</td>
             <td>{{this.SGST_V}}</td>
             <td>{{this.Amount}}</td>
-            <td>{{this.T_Amount}}</td>
+            <td class="t-amount">{{this.T_Amount}}</td>
         </tr>
         {{/each}}
         <tr>

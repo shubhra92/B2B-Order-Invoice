@@ -1,7 +1,5 @@
 const itemModel = require("../models/itemModel.js");
 const fs = require("fs");
-const pdf = require("pdfkit");
-const path = require("path");
 const { getPdf } = require("../helper_module/helper.js");
 
 
@@ -47,7 +45,7 @@ const getAllItemsPdf = async (_, res) => {
         if(err)return res.send("error")
         else {
             res.setHeader("Content-Type", "application/pdf");
-            res.setHeader("Content-Disposition", "attachment; filename=AllItems.pdf");
+            res.setHeader("Content-Disposition", "attachment; filename=All Items.pdf");
             res.send(file)
         }
       }

@@ -12,20 +12,27 @@ const App = () => {
 
     const order_detail = (itemDoc) =>{
         let _items=[...OrderItems]
+        
         const index = _items.findIndex((e)=>e.SKU===itemDoc.SKU)
+
         if(index!==-1) {
             if(itemDoc.Qty===0) _items.splice(index,1)
             else _items[index].Qty=itemDoc.Qty
         } else {
             _items.push({...itemDoc})
         }
+
         let gt_Amount = 0
+        
         _items=_items.map((e)=>{
-            const T_Amount=e.Amount * e.Qty
+            const T_Amount=Math.round((e.Amount * e.Qty)*100)/100
             gt_Amount +=T_Amount
+
             return {...e,T_Amount}
           })
+          
         setOrderItems(_items)
+        gt_Amount= Math.round(gt_Amount*100)/100
         setGT_Amount(gt_Amount)
     }
 

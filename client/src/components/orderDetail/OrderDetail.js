@@ -3,6 +3,7 @@ import "./Order.css"
 import OrderTabel from './OrderTabel'
 
 const OrderDetail = ({OrderItems, GT_Amount}) => {
+  
   const jsonData =JSON.stringify(OrderItems) 
   const pdfDownloadLink = `http://localhost:3001/invoice?items=${jsonData}&GT_Amount=${GT_Amount}`
   

@@ -35,11 +35,13 @@ await pdf.create(document, options)
 
 exports.invoice = async(data, GT_Amount, OrderId, OrderDate)=>{
   document.html=invoice_html
-  document.data.items = data
-  document.data.OrderId = OrderId
-  document.data.OrderDate = OrderDate
-  document.data.GT_Amount = GT_Amount
-  document.data.InvoiceDate = moment().format("DD-MM-YYYY")
+  document.data = {
+    items: data,
+    OrderId,
+    OrderDate,
+    GT_Amount,
+    InvoiceDate: moment().format("DD-MM-YYYY")
+  }
 
   await pdf.create(document, options)
 }
