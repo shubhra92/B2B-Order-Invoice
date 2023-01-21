@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import './App.css';
 import pdfLogo from './asset/pdfLogo.png';
@@ -18,9 +19,7 @@ const App = () => {
         if(index!==-1) {
             if(itemDoc.Qty===0) _items.splice(index,1)
             else _items[index].Qty=itemDoc.Qty
-        } else {
-            _items.push({...itemDoc})
-        }
+        } else _items.push({...itemDoc})
 
         let gt_Amount = 0
         
@@ -36,8 +35,30 @@ const App = () => {
         setGT_Amount(gt_Amount)
     }
 
-    const AllItemsPdf = ()=>{
-        document.getElementById('all-items-pdf').click()
+    const PdfDownloder = async (url, fileName)=>{
+        const file = await axios({
+            url: url,
+            method: 'GET',
+            responseType: "blob"
+        })
+        const Uri = window.URL.createObjectURL(new Blob([file.data]))
+
+        const Link = document.createElement('a');
+        Link.href = Uri
+        Link.setAttribute('download',fileName)
+
+        document.body.appendChild(Link)
+
+        Link.click()
+        
+        document.body.removeChild(Link)
+    }
+
+    const AllItemsPdf = async ()=> {
+        const url = "http://localhost:3001/pdf"
+        const fileName = "All items.pdf"
+        await PdfDownloder(url, fileName)
+
     }
 
   return (
@@ -45,10 +66,9 @@ const App = () => {
         <div className='logo--container'>
             <h1>All Products</h1>
             <img src={pdfLogo} onClick={AllItemsPdf}/>
-            <a href='http://localhost:3001/pdf' id="all-items-pdf"></a>
         </div>
         <ProductTabel setOrder={order_detail}/>
-        <OrderDetail OrderItems={OrderItems} GT_Amount={GT_Amount}/>
+        <OrderDetail OrderItems={OrderItems} GT_Amount={GT_Amount} PdfDownloder={PdfDownloder}/>
       </div>
   )
 }

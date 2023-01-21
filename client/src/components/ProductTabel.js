@@ -31,6 +31,7 @@ const ProductTabel = ({setOrder}) => {
     
   return (
     <table >
+        <tbody>
         <tr>
             <th>Line Item Name</th>
             <th>SKU</th>
@@ -38,22 +39,30 @@ const ProductTabel = ({setOrder}) => {
             <th>Qty</th>
             <th>Rate ₹</th>
             <th>Discount ₹</th>
-            <th colspan="2">
+            <th colSpan="2">
                 <table>
-                <tr>CGST</tr>
+                    <tbody>
+                <tr>
+                    <th colSpan="2">CGST</th>
+                </tr>
                 <tr>
                     <td>%</td>
                     <td>Amt ₹</td>
                 </tr>
+                </tbody>
                 </table>
             </th>
-            <th colspan="2">
+            <th colSpan="2">
                 <table>
-                <tr>SGST</tr>
+                    <tbody>
+                <tr>
+                    <th colSpan="2">SGST</th>
+                </tr>
                 <tr>
                     <td>%</td>
                     <td>Amt ₹</td>
                 </tr>
+                </tbody>
                 </table>
             </th>
             <th>Amount ₹</th>
@@ -87,6 +96,7 @@ const ProductTabel = ({setOrder}) => {
                 </tr>
             )
         })}
+        </tbody>
     </table>
   
   )

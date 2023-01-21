@@ -4,6 +4,7 @@ import React from 'react'
 const OrderTabel = ({OrderItems, GT_Amount}) => {
   return (
     <table >
+        <tbody>
     <tr>
         <th>Line Item Name</th>
         <th>SKU</th>
@@ -11,22 +12,30 @@ const OrderTabel = ({OrderItems, GT_Amount}) => {
         <th>Qty</th>
         <th>Rate ₹</th>
         <th>Discount ₹</th>
-        <th colspan="2">
+        <th colSpan="2">
             <table>
-            <tr>CGST</tr>
+                <tbody>
+                <tr>
+                    <th colSpan="2">CGST</th>
+                </tr>
             <tr>
                 <td>%</td>
                 <td>Amt ₹</td>
             </tr>
+            </tbody>
             </table>
         </th>
-        <th colspan="2">
+        <th colSpan="2">
             <table>
-            <tr>SGST</tr>
+            <tbody>
+            <tr>
+                <th colSpan="2">SGST</th>
+            </tr>
             <tr>
                 <td>%</td>
                 <td>Amt ₹</td>
             </tr>
+            </tbody>
             </table>
         </th>
         <th>Amount ₹</th>
@@ -51,9 +60,10 @@ const OrderTabel = ({OrderItems, GT_Amount}) => {
         )
     })}
     <tr>
-        <th colspan="11">Grand Total</th>
+        <th colSpan="11">Grand Total</th>
         <td><strong>{GT_Amount}</strong></td>
     </tr>
+    </tbody>
 </table>
   )
 }
