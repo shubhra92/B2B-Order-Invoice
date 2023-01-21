@@ -1,0 +1,13 @@
+.Order-container {
+  text-align: center;
+}
+
+.Order-container > button {
+  border-radius: 5px;
+  border-color: azure;
+  width: 133px;
+  margin-top: 14px;
+  cursor: pointer;
+  color: green;
+  height: 50px;
+}

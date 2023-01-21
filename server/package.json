@@ -1,0 +1,20 @@
+{
+  "name": "kwipic",
+  "version": "1.0.0",
+  "description": "invoice genarate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon src/index.js"
+  },
+  "author": "Shubhra Ghosh",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongoose": "^6.8.4",
+    "pdf-creator-node": "^2.3.5",
+    "uuid": "^9.0.0"
+  }
+}

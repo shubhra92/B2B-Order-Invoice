@@ -1,0 +1,27 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  min-width: 61px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo--container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo--container > img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+#all-items-pdf {
+  display: none;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Hello world!</title>
+  <style>
+    table,
+    th,
+    td {
+      border-collapse: collapse;
+      border: 1px solid black;
+      text-align: center;
+      min-width: 50px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <h1>All Items</h1>
+  </div>
+  <table>
+    <tr>
+      <th>Line Item Name</th>
+      <th>SKU</th>
+      <th>HSN/SAC</th>
+      <th>Qty</th>
+      <th>Rate ₹</th>
+      <th>Discount ₹</th>
+      <th colspan="2">
+        <table>
+          <tr>CGST</tr>
+          <tr>
+            <td>%</td>
+            <td>Amt ₹</td>
+          </tr>
+        </table>
+      </th>
+      <th colspan="2">
+        <table>
+          <tr>SGST</tr>
+          <tr>
+            <td>%</td>
+            <td>Amt ₹</td>
+          </tr>
+        </table>
+      </th>
+      <th>Amount ₹</th>
+    </tr>
+    {{#each items}}
+    <tr>
+      <td>{{this.item_name}}</td>
+      <td>{{this.SKU}}</td>
+      <td>{{this.HSN_SAC}}</td>
+      <td>{{this.quantity}}</td>
+      <td>{{this.Rate}}</td>
+      <td>{{this.Discount}}</td>
+      <td>{{this.CGST_P}}</td>
+      <td>{{this.CGST_V}}</td>
+      <td>{{this.SGST_P}}</td>
+      <td>{{this.SGST_V}}</td>
+      <td>{{this.Amount}}</td>
+    </tr>
+    {{/each}}
+    <br />
+  </table>
+</body>
+
+</html>
