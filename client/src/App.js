@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import './App.css';
+import gifLogo from './asset/download.gif';
 import pdfLogo from './asset/pdfLogo.png';
 import OrderDetail from './components/orderDetail/OrderDetail';
 import ProductTabel from './components/ProductTabel';
@@ -8,6 +9,7 @@ import ProductTabel from './components/ProductTabel';
 const App = () => {
     const [OrderItems, setOrderItems] =useState([])
     const [GT_Amount, setGT_Amount]=useState(0)
+    const [logo, setLogo]=useState("logo")
 
 
 
@@ -55,9 +57,11 @@ const App = () => {
     }
 
     const AllItemsPdf = async ()=> {
+        setLogo("downloding...")
         const url = "http://localhost:3001/pdf"
         const fileName = "All items.pdf"
         await PdfDownloder(url, fileName)
+        setLogo("logo")
 
     }
 
@@ -65,7 +69,7 @@ const App = () => {
       <div className='main'>
         <div className='logo--container'>
             <h1>All Products</h1>
-            <img src={pdfLogo} onClick={AllItemsPdf}/>
+            <img src={logo==='logo'?pdfLogo:gifLogo} onClick={logo==='logo' && AllItemsPdf}/>
         </div>
         <ProductTabel setOrder={order_detail}/>
         <OrderDetail OrderItems={OrderItems} GT_Amount={GT_Amount} PdfDownloder={PdfDownloder}/>
